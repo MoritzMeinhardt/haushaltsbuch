@@ -6,7 +6,6 @@ import {UebersichtService} from './services/uebersicht.service';
 import {DataService} from './services/data.service';
 import {KassenBestandsService} from './services/kassen-bestands.service';
 import {SplitInputToArgService} from './services/split-input-to-arg.service';
-import {distinctUntilChanged} from 'rxjs/operators';
 
 @Component({
     selector: 'app-root',
@@ -30,7 +29,7 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.dataService.getBuchungsUebersicht$().pipe(distinctUntilChanged()).subscribe(uebersicht => {
+        this.dataService.getBuchungsUebersicht$().subscribe(uebersicht => {
             if (uebersicht.length > 0) {
                 this.showMessage();
                 this.kassenBestand = this.kassenBestandsService.berechneKasssenBestand(uebersicht);
