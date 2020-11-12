@@ -1,8 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Kategorie} from '../models/kategorie';
-import {EinzahlungService} from './einzahlung.service';
-import {AuszahlungService} from './auszahlung.service';
-import {UebersichtService} from './uebersicht.service';
 
 export enum Action {
     EINZAHLEN = 'einzahlen',
@@ -16,9 +13,6 @@ export enum Action {
 export class BefehlErkennenService {
 
     constructor(
-        private einzahlService: EinzahlungService,
-        private auszahlungsService: AuszahlungService,
-        private uebersichtsService: UebersichtService,
     ) {
     }
 
@@ -29,9 +23,6 @@ export class BefehlErkennenService {
         onUebersicht: (kategorien: Kategorie[]) => any
     ): void {
         const action: Action = this.getActionFromArg(args[0]);
-        onEinzaehlen.bind(this.einzahlService);
-        onAuszahlung.bind(this.auszahlungsService);
-        onUebersicht.bind(this.uebersichtsService);
 
         switch (action) {
             case Action.EINZAHLEN:
