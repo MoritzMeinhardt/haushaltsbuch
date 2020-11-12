@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'haushaltsbuch';
+
+  onStart(args: string) {
+    console.log(args);
+  }
 }
