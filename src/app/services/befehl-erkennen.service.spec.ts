@@ -46,6 +46,15 @@ fdescribe('BefehlErkennenService', () => {
     expect(actual).toBe(expected);
   });
 
+  it('should raise error on unknown action', () => {
+    const arg = 'unknown';
+
+    expect(function () {
+      service['getActionFromArg'](arg);
+    }).toThrow();
+
+  });
+
   it('should return wert from arg: 100.10', () => {
     const arg = '100.10';
     const actual = service['getWertFromArg'](arg);

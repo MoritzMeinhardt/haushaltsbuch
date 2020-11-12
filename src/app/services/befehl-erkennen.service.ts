@@ -12,15 +12,15 @@ export enum Action {
 })
 export class BefehlErkennenService {
 
-  constructor() { }
+  constructor() {
+  }
 
   public befehlErkennen(args: string[], onEinzaehlen: (betrag: number) => any, onAuszahlung: (kategorie: Kategorie) => any, onUebersicht: (kategorien: Kategorie[]) => any): void {
-    const action: Action = this.getActionFromArg(args[0]);
+    const action: Action = this.getActionFromArg(args[ 0 ]);
 
-
-    switch(action) {
+    switch (action) {
       case Action.EINZAHLEN:
-        const wert = this.getWertFromArg(args[1]);
+        const wert = this.getWertFromArg(args[ 1 ]);
         onEinzaehlen(wert);
         break;
       case Action.AUSHZAHLEN:
@@ -41,13 +41,12 @@ export class BefehlErkennenService {
       case Action.UEBERSICHT:
         return Action.UEBERSICHT;
       default:
-        throw new Error("Action unknown. Must be of Type: einzahlen, auszahlen, uebersicht.");
+        throw new Error('Action unknown. Must be of Type: einzahlen, auszahlen, uebersicht.');
     }
   }
 
   private getWertFromArg(arg: string): number {
     return +arg;
   }
-
 
 }
