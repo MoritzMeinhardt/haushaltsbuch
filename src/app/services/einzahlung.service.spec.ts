@@ -1,16 +1,19 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { EinzahlungService } from './einzahlung.service';
+import {EinzahlungService} from './einzahlung.service';
 
 describe('EinzahlungService', () => {
-  let service: EinzahlungService;
+    let einzahlungService: EinzahlungService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(EinzahlungService);
-  });
+    beforeEach(() => {
+        TestBed.configureTestingModule({});
+    });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+    beforeEach(() => {
+        einzahlungService = TestBed.inject(EinzahlungService);
+    });
+
+    it('should be created', () => {
+        expect(einzahlungService).toBeTruthy();
+    });
 });

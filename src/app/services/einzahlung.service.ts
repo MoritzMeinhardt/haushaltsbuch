@@ -1,13 +1,24 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {DataService} from './data.service';
+import {Buchung} from '../models/buchung';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class EinzahlungService {
 
-  constructor() { }
+    constructor(
+        private dataService: DataService
+    ) {
+    }
 
-  einzahlen() {
+    einzahlen(betrag: number) {
+        const einzahlungsBuchung: Buchung = this.getEinzahlungsBuchung(betrag);
+        this.dataService.addBuchung(einzahlungsBuchung);
+    }
 
-  }
+    getEinzahlungsBuchung(betrag: number): Buchung {
+        return new Buchung(betrag, null);
+    }
+
 }

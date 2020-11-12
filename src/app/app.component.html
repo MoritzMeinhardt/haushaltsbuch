@@ -1,4 +1,4 @@
 <input type="text" #input>
 <button (click)="onStart(input.value)">Start</button>
 <hr>
-<p>{{ ausgabe }}</p>
+<p *ngIf="isMessageShown">Kassenbestand: {{ kassenBestand }}</p>
