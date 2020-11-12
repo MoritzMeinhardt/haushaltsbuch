@@ -7,7 +7,5 @@ export class UebersichtService {
 
   constructor() { }
 
-  getUebersicht() {
-
-  }
+  getUebersicht = (() => {}).bind(this);
 }

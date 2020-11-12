@@ -7,5 +7,5 @@ export class AuszahlungService {
 
   constructor() { }
 
-  auszahlen() {}
+  auszahlen = (() => {}).bind(this);
 }
