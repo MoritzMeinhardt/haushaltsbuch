@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'haushaltsbuch';
 
+  public ausgabe: string;
+
   onStart(args: string) {
-    console.log(args);
+    this.ausgabe = args;
   }
 }
