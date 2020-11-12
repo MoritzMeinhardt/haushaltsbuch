@@ -4,6 +4,7 @@ import { EinzahlungService } from './services/einzahlung.service';
 import { AuszahlungService } from './services/auszahlung.service';
 import { UebersichtService } from './services/uebersicht.service';
 import { DataService } from './services/data.service';
+import { SplitInputToArgService } from './services/split-input-to-arg.service';
 
 @Component({
   selector: 'app-root',
@@ -17,10 +18,12 @@ export class AppComponent {
               private einzahlService: EinzahlungService,
               private auszahlungsService: AuszahlungService,
               private uebersichtsService: UebersichtService,
+              private splitInputIntoArgsService: SplitInputToArgService,
               private dataService: DataService) {
   }
 
-  onStart(args: string) {
+  onStart(input: string) {
+    const args = this.splitInputIntoArgsService.splitInputToArg(input);
     this.befehlErkennenService.befehlErkennen([...args], this.einzahlService.einzahlen, this.auszahlungsService.auszahlen, this.uebersichtsService.getUebersicht);
   }
 }
